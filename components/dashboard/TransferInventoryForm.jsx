@@ -37,14 +37,14 @@ export default function TransferInventoryForm({ items, warehouses }) {
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <SelectInput
           name="itemId"
-          label="Select the Item"
+          label="Selecione o Item"
           register={register}
           className="w-full"
           options={items}
         />
         <TextInput
           type="number"
-          label="Enter Quantity of Stock to Transfer"
+          label="Insira a Quantidade de Estoque a Transferir"
           name="transferStockQty"
           register={register}
           errors={errors}
@@ -52,20 +52,20 @@ export default function TransferInventoryForm({ items, warehouses }) {
         />
         <SelectInput
           name="givingWarehouseId"
-          label="Select the Warehouse that will give the Stock"
+          label="Selecione o Armazém que Vai Dar o Estoque"
           register={register}
           className="w-full"
           options={warehouses}
         />
         <SelectInput
           name="recievingWarehouseId"
-          label="Select the Warehouse that will receive the Stock"
+          label="Selecione o Armazém que Vai Receber o Estoque"
           register={register}
           className="w-full"
           options={warehouses}
         />
         <TextareaInput
-          label="Adjustment Notes"
+          label="Notas do Ajuste"
           name="notes"
           register={register}
           errors={errors}

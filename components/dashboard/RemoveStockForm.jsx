@@ -34,21 +34,21 @@ export default function RemoveStockForm({ items }) {
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <SelectInput
           name="itemId"
-          label="Select the Item"
+          label="Selecione o Item"
           register={register}
           className="w-full"
           options={items}
         />
         <TextInput
           type="number"
-          label="Enter Quantity of Stock to Remove"
+          label="Insira a Quantidade de Estoque a Remover"
           name="addStockQty"
           register={register}
           errors={errors}
           className="w-full"
         />
       </div>
-      <SubmitButton isLoading={loading} title="Add Stock" />
+      <SubmitButton isLoading={loading} title="Adicionar Estoque" />
     </form>
   );
 }

@@ -9,17 +9,17 @@ export default function DeleteBtn({ id, endpoint }) {
   const [loading, setLoading] = useState(false);
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const router = useRouter();
-  // const confirmed = confirm("Are you sure?");
+  // const confirmed = confirm("Você tem certeza?");
   async function handleDelete() {
     setLoading(true);
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Você tem certeza?",
+      text: "Você não poderá reverter isso!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Sim, exclua isso!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await fetch(`${baseUrl}/api/${endpoint}?id=${id}`, {
@@ -29,7 +29,7 @@ export default function DeleteBtn({ id, endpoint }) {
         if (res.ok) {
           router.refresh();
           setLoading(false);
-          toast.success("Deleted Successfully");
+          toast.success("Deletad");
         }
       } else {
         setLoading(false);
@@ -61,7 +61,7 @@ export default function DeleteBtn({ id, endpoint }) {
               fill="currentColor"
             />
           </svg>
-          Deleting Please wait...
+          Excluindo, por favor aguarde...
         </button>
       ) : (
         <button

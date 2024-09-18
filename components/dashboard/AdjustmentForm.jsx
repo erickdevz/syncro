@@ -9,17 +9,17 @@ import React, { useState } from "react";
 export default function AdjustmentForm({ items, warehouses, suppliers }) {
   const tabs = [
     {
-      title: "Add Stock",
+      title: "Add Estoque",
       icon: Plus,
       form: "add",
     },
     {
-      title: "Remove Stock",
+      title: "Remove Estoque",
       icon: Minus,
       form: "remove",
     },
     {
-      title: "Transfer Stock",
+      title: "Transferir Estoque",
       icon: Minus,
       form: "transfer",
     },
@@ -29,7 +29,7 @@ export default function AdjustmentForm({ items, warehouses, suppliers }) {
     <div>
       {/* Header */}
       <FormHeader
-        title="New Adjustment"
+        title="Novo Ajustamento"
         href="/dashboard/inventory/adjustments"
       />
       {/* Form */}

@@ -36,14 +36,14 @@ export default function UpdateStockForm({ items, warehouses, type = "add" }) {
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <SelectInput
           name="itemId"
-          label="Select the Item"
+          label="Selecione o Item"
           register={register}
           className="w-full"
           options={items}
         />
         <SelectInput
           name="warehouseId"
-          label="Select the Warehouse"
+          label="Selecione o Armazém"
           register={register}
           className="w-full"
           options={warehouses}
@@ -52,8 +52,8 @@ export default function UpdateStockForm({ items, warehouses, type = "add" }) {
           type="number"
           label={
             type == "add"
-              ? "Enter Quantity of Stock to Add"
-              : "Enter Quantity of Stock to Remove"
+              ? "Insira a Quantidade de Estoque a Adicionar"
+              : "Insira a Quantidade de Estoque a Remover"
           }
           name="addStockQty"
           register={register}
@@ -63,7 +63,7 @@ export default function UpdateStockForm({ items, warehouses, type = "add" }) {
       </div>
       <SubmitButton
         isLoading={loading}
-        title={type == "add" ? "Add Stock" : "Remove Stock"}
+        title={type == "add" ? "Add Estoque" : "Remove Estoque"}
       />
     </form>
   );
