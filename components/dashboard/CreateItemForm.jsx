@@ -6,11 +6,12 @@ import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextInput from "@/components/FormInputs/TextInput";
 import TextareaInput from "@/components/FormInputs/TextareaInput";
 
-import { makePostRequest, makePutRequest } from "@/lib/apiRequest";
+import { makePostRequest, makePutRequest, fetchData } from "@/lib/apiRequest";
 import { generateSlug } from "@/lib/generateSlug";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 export default function CreateItemForm({
   categories,
@@ -19,39 +20,55 @@ export default function CreateItemForm({
   suppliers,
   initialData = {},
   isUpdate = false,
+  itemId, // ID do item para edição
 }) {
-  const [imageUrl, setImageUrl] = useState(initialData.imageUrl);
+  const [imageUrl, setImageUrl] = useState(initialData.imageUrl || "");
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({ defaultValues: initialData });
+  const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm({
+    defaultValues: initialData,
+  });
   const [loading, setLoading] = useState(false);
+
+  // Função de redirecionamento após a operação de sucesso
   function redirect() {
     router.push("/dashboard/inventory/items");
   }
-  console.log(isUpdate);
+
+  // Carregar os dados do item existente (se estiver em modo de atualização)
+  useEffect(() => {
+    if (isUpdate && itemId) {
+      fetchData(`api/items/${itemId}`, (data) => {
+        setImageUrl(data.imageUrl); // Preenche o campo de imagem
+        // Atualiza os campos do formulário com os dados recebidos
+        for (const [key, value] of Object.entries(data)) {
+          setValue(key, value);
+        }
+      });
+    }
+  }, [isUpdate, itemId, setValue]);
+
+  // Submissão do formulário
   async function onSubmit(data) {
     data.slug = generateSlug(data.title);
-    data.imageUrl = imageUrl;
-    console.log(data);
+    data.imageUrl = imageUrl; // Adiciona a URL da imagem ao objeto de dados
+
     if (isUpdate) {
-      // Update request
-      makePutRequest(
+      // Update request (edição de item)
+      await makePutRequest(
         setLoading,
-        `api/items/${initialData.id}`,
+        `api/items/${itemId}`, // Endpoint para atualização
         data,
         "Item",
         redirect,
         reset
       );
     } else {
-      makePostRequest(setLoading, "api/items", data, "Item", reset);
-      setImageUrl("");
+      // Create request (criação de novo item)
+      await makePostRequest(setLoading, "api/items", data, "Item", reset);
+      setImageUrl(""); // Reseta o campo de imagem após a criação
     }
   }
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -72,7 +89,6 @@ export default function CreateItemForm({
           className="w-full"
           options={categories}
         />
-
         <TextInput
           label="SKU do Item"
           name="sku"
@@ -85,7 +101,6 @@ export default function CreateItemForm({
           name="barcode"
           register={register}
           errors={errors}
-          // isRequired='false'
           className="w-full"
         />
         <TextInput
@@ -140,7 +155,6 @@ export default function CreateItemForm({
           errors={errors}
           className="w-full"
         />
-
         <TextInput
           label="Peso do Item em Kgs"
           name="weight"
@@ -185,7 +199,7 @@ export default function CreateItemForm({
       </div>
       <SubmitButton
         isLoading={loading}
-        title={isUpdate ? "Item Atualizado" : "Novo Item"}
+        title={isUpdate ? "Atualizar Item" : "Criar Novo Item"}
       />
     </form>
   );

@@ -94,7 +94,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
             icon={BaggageClaim}
             setShowSidebar={setShowSidebar}
           />
-          <Link href="#" className="flex items-center space-x-2 p-2 ">
+          <Link href="https://docs.google.com/document/d/1siBBiKarnSMtcCK7VgkgAialEemAXhDYq3h_dCyQ01I/edit#heading=h.oyje4yf4k0px" className="flex items-center space-x-2 p-2 ">
             <Files className="w-4 h-4" />
             <span>Documentos</span>
           </Link>
