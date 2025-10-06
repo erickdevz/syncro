@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://syncro-teal.vercel.app" target="_blank">
+  <a href="syncro-pearl.vercel.app" target="_blank">
     🔗 <b>Ver projeto ao vivo</b>
   </a>
 </p>
