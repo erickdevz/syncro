@@ -13,7 +13,7 @@
 
 O **Syncro** é uma aplicação **Fullstack** desenvolvida como **projeto final do curso “Desenvolvedor Fullstack”** realizado pelo **SENAI** em parceria com a **Energisa**, dentro do programa de inovação **Rio Pomba Valley (MG)**.
 
-O sistema foi criado com foco em **organização, produtividade e integração de tecnologias modernas**, aplicando na prática os conceitos aprendidos durante o curso — desde o desenvolvimento do front-end com **Next.js + React**, até o back-end estruturado com **Prisma ORM** e banco de dados relacional.
+O sistema foi criado com foco em **organização, produtividade e integração de tecnologias modernas**, aplicando na prática os conceitos aprendidos durante o curso — desde o desenvolvimento do front-end com **Next.js + React**, até o back-end estruturado com Prisma ORM e banco de dados MongoDB Cloud (Atlas).
 
 ---
 
@@ -34,7 +34,7 @@ O projeto teve como propósito:
 |--------|--------------|
 | **Frontend** | [Next.js (App Router)](https://nextjs.org/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/) |
 | **Backend** | [Node.js](https://nodejs.org/), [Prisma ORM](https://www.prisma.io/) |
-| **Banco de Dados** | PostgreSQL |
+| **Banco de Dados** | MongoDB Atlas (Cloud) |
 | **Infra & Deploy** | [Vercel](https://vercel.com/) |
 | **Outros** | ESLint, PostCSS, TypeScript, Git/GitHub |
 
@@ -88,7 +88,7 @@ npm install
 Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
 
 ```ini
-DATABASE_URL="postgresql://usuario:senha@localhost:5432/syncro?schema=public"
+DATABASE_URL="mongodb+srv://usuario:senha@cluster0.xxxxx.mongodb.net/syncro?retryWrites=true&w=majority"
 ```
 
 #### 4️⃣ Rodar as migrações e iniciar o servidor
@@ -107,7 +107,7 @@ Acesse em: 👉 **[http://localhost:3000](http://localhost:3000)**
 * Integração entre **frontend e backend**
 * Estrutura escalável e componentizada
 * Interface moderna com **Tailwind CSS**
-* Conexão com banco via **Prisma ORM**
+* Conexão com banco de dados **MongoDB Cloud (Atlas)** via **Prisma ORM**
 * Deploy automatizado na **Vercel**
 * Padrões de **Clean Code** e **boas práticas de desenvolvimento**
 
@@ -118,7 +118,7 @@ Acesse em: 👉 **[http://localhost:3000](http://localhost:3000)**
 Durante o desenvolvimento, foram aplicados conceitos fundamentais como:
 
 * Estruturação de aplicações **Fullstack modernas**
-* Modelagem de dados com **ORM**
+* Modelagem de dados com **MongoDB** + **Prisma ORM**
 * Criação de APIs e rotas dinâmicas
 * Uso de hooks e contextos globais
 * Versionamento com **Git** e integração contínua
