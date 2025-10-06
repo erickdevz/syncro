@@ -1,7 +1,7 @@
 <h1 align="center">⚡ Syncro</h1>
 
 <p align="center">
-  <img src="./public/preview.png" width="800" alt="Preview do projeto Syncro" />
+  <img src="./public/preview.jpg" width="800" alt="Preview do projeto Syncro" />
 </p>
 
 <p align="center">
