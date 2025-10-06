@@ -1,30 +1,42 @@
-# ⚡ Syncro
+<h1 align="center">⚡ Syncro</h1>
 
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
-[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)](https://syncro-teal.vercel.app)
+<p align="center">
+  <img src="./public/preview.png" width="800" alt="Preview do projeto Syncro" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
+  <img src="https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel" alt="Vercel" />
+</p>
+
+<p align="center">
+  <a href="https://syncro-teal.vercel.app" target="_blank">
+    🔗 <b>Ver projeto ao vivo</b>
+  </a>
+</p>
 
 ---
 
 ## 🧭 Sobre o projeto
 
-O **Syncro** é uma aplicação **Fullstack** desenvolvida como **projeto final do curso “Desenvolvedor Fullstack”** realizado pelo **SENAI** em parceria com a **Energisa**, dentro do programa de inovação **Rio Pomba Valley (MG)**.
+O **Syncro** é um **software de gestão de inventário** desenvolvido como **projeto final do curso “Desenvolvedor Fullstack”** realizado pelo **SENAI** em parceria com a **Energisa**, dentro do programa **Rio Pomba Valley (MG)**.
 
-O sistema foi criado com foco em **organização, produtividade e integração de tecnologias modernas**, aplicando na prática os conceitos aprendidos durante o curso — desde o desenvolvimento do front-end com **Next.js + React**, até o back-end estruturado com Prisma ORM e banco de dados MongoDB Cloud (Atlas).
+A aplicação tem como objetivo **otimizar o controle de estoque, pedidos e inventário**, oferecendo uma interface moderna e intuitiva.  
+Desenvolvido com **Next.js + React**, **Prisma ORM** e **MongoDB Cloud (Atlas)**, o projeto reflete o aprendizado técnico e prático adquirido ao longo da formação.
 
 ---
 
 ## 🎯 Objetivo
 
-O projeto teve como propósito:
-
-- Consolidar os conhecimentos técnicos adquiridos no curso.  
+- Aplicar na prática os conhecimentos adquiridos durante o curso.  
 - Construir uma aplicação **modular, responsiva e escalável**.  
-- Demonstrar boas práticas de arquitetura, versionamento e design de interface.  
-- Aplicar o ciclo completo de desenvolvimento: **planejamento → código → testes → deploy**.  
+- Demonstrar boas práticas de **arquitetura e design de software**.  
+- Criar uma solução funcional de **gestão de inventário e pedidos**.
 
 ---
 
@@ -34,7 +46,7 @@ O projeto teve como propósito:
 |--------|--------------|
 | **Frontend** | [Next.js (App Router)](https://nextjs.org/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/) |
 | **Backend** | [Node.js](https://nodejs.org/), [Prisma ORM](https://www.prisma.io/) |
-| **Banco de Dados** | MongoDB Atlas (Cloud) |
+| **Banco de Dados** | [MongoDB Atlas (Cloud)](https://www.mongodb.com/atlas) |
 | **Infra & Deploy** | [Vercel](https://vercel.com/) |
 | **Outros** | ESLint, PostCSS, TypeScript, Git/GitHub |
 
@@ -49,8 +61,8 @@ syncro/
 ├── components/          # Componentes reutilizáveis
 ├── context/             # Contextos globais e providers
 ├── lib/                 # Funções auxiliares e conexão Prisma
-├── prisma/              # Schema, migrations e seeds
-├── public/              # Arquivos estáticos
+├── prisma/              # Schema Prisma configurado para MongoDB
+├── public/              # Arquivos estáticos (preview.png, ícones, etc)
 ├── styles/              # Estilos globais
 ├── tailwind.config.js   # Configuração do Tailwind CSS
 ├── postcss.config.js
@@ -64,67 +76,52 @@ syncro/
 ## 🚀 Como Executar Localmente
 
 ### 🧰 Pré-requisitos
-
 - [Node.js 18+](https://nodejs.org/)
 - npm, yarn ou pnpm
-- Banco de dados PostgreSQL configurado
+- Conta no [MongoDB Atlas (Cloud)](https://www.mongodb.com/atlas) com cluster criado
 
 ### ⚡ Passos
 
-#### 1️⃣ Clonar o repositório
 ```bash
+# 1️⃣ Clonar o repositório
 git clone https://github.com/erickdevz/syncro.git
 cd syncro
+
+# 2️⃣ Instalar dependências
+npm install
+
+# 3️⃣ Configurar variáveis de ambiente (.env)
+DATABASE_URL="mongodb+srv://usuario:senha@cluster0.xxxxx.mongodb.net/syncro?retryWrites=true&w=majority"
+
+# 4️⃣ Gerar o Prisma Client e rodar o projeto
+npx prisma generate
+npm run dev
 ````
 
-#### 2️⃣ Instalar dependências
-
-```bash
-npm install
-```
-
-#### 3️⃣ Configurar variáveis de ambiente
-
-Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
-
-```ini
-DATABASE_URL="mongodb+srv://usuario:senha@cluster0.xxxxx.mongodb.net/syncro?retryWrites=true&w=majority"
-```
-
-#### 4️⃣ Rodar as migrações e iniciar o servidor
-
-```bash
-npx prisma migrate dev
-npm run dev
-```
-
-Acesse em: 👉 **[http://localhost:3000](http://localhost:3000)**
+Acesse: 👉 **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
 ## 💻 Funcionalidades Principais
 
-* Integração entre **frontend e backend**
-* Estrutura escalável e componentizada
-* Interface moderna com **Tailwind CSS**
-* Conexão com banco de dados **MongoDB Cloud (Atlas)** via **Prisma ORM**
-* Deploy automatizado na **Vercel**
-* Padrões de **Clean Code** e **boas práticas de desenvolvimento**
+✅ Painel principal com acesso rápido ao sistema de inventário
+✅ Controle de produtos e pedidos com banco de dados em nuvem
+✅ Interface moderna e responsiva com **Tailwind CSS**
+✅ Conexão com **MongoDB Cloud (Atlas)** via **Prisma ORM**
+✅ Deploy automatizado na **Vercel**
+✅ Código seguindo padrões de **Clean Code**
 
 ---
 
 ## 📈 Aprendizados
 
-Durante o desenvolvimento, foram aplicados conceitos fundamentais como:
+* Integração completa entre **frontend e backend**
+* Modelagem de dados com **MongoDB + Prisma ORM**
+* Criação e consumo de APIs RESTful
+* Uso de **hooks e contextos globais**
+* Versionamento com **Git** e **deploy automatizado na Vercel**
 
-* Estruturação de aplicações **Fullstack modernas**
-* Modelagem de dados com **MongoDB** + **Prisma ORM**
-* Criação de APIs e rotas dinâmicas
-* Uso de hooks e contextos globais
-* Versionamento com **Git** e integração contínua
-* Deploy em ambiente de produção com **Vercel**
-
-Este projeto reflete a **evolução técnica e prática** adquirida ao longo do curso, demonstrando o domínio de ferramentas e metodologias do desenvolvimento web moderno.
+> O projeto demonstra a evolução técnica adquirida ao longo do curso, refletindo boas práticas de desenvolvimento Fullstack moderno.
 
 ---
 
@@ -152,8 +149,10 @@ Desenvolvedor Back-End Java • Fullstack em formação
 📍 Viçosa – MG
 🔗 [LinkedIn](https://linkedin.com/in/erickxavierdev)
 💻 [GitHub](https://github.com/erickdevz)
-📫 E-mail: [erickxavier.dev@gmail.com](mailto:erickxavier.dev@gmail.com)
+📫 [erickxavier.dev@gmail.com](mailto:erickxavier.dev@gmail.com)
 
 ---
 
-> *“A tecnologia é a ponte entre a ideia e o impacto. O Syncro representa essa travessia no meu aprendizado como desenvolvedor.”*
+<p align="center">
+  <i>“A tecnologia é a ponte entre a ideia e o impacto. O Syncro representa essa travessia no meu aprendizado como desenvolvedor.”</i>
+</p>
