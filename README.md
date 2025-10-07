@@ -91,7 +91,7 @@ cd syncro
 npm install
 
 # 3️⃣ Configurar variáveis de ambiente (.env)
-DATABASE_URL="mongodb+srv://usuario:senha@cluster0.xxxxx.mongodb.net/syncro?retryWrites=true&w=majority"
+DATABASE_URL="mongodb+srv://<seu_usuario>:<sua_senha>@<seu_cluster>.mongodb.net/<seu_banco>"
 
 # 4️⃣ Gerar o Prisma Client e rodar o projeto
 npx prisma generate
